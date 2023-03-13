@@ -1,3 +1,5 @@
+import hashlib
+
 mdpUtilisateur = str(input("Veuillez entrer votre mot de passe : "))
 mdpLenght = False
 mdpUpper = False
@@ -38,4 +40,7 @@ while mdpLenght == False or mdpUpper == False or mdpLower == False or mdpNumber 
             mdpSpecial = True
 else:
     print("Votre mot de passe répond aux exigences de sécurité")
+
+crypt = hashlib.sha256(mdpUtilisateur.encode("utf-8")).hexdigest
+
    

@@ -1,4 +1,6 @@
 import hashlib
+import json
+
 
 mdpUtilisateur = str(input("Veuillez entrer votre mot de passe : "))
 mdpLenght = False
@@ -41,6 +43,13 @@ while mdpLenght == False or mdpUpper == False or mdpLower == False or mdpNumber 
 else:
     print("Votre mot de passe répond aux exigences de sécurité")
 
-crypt = hashlib.sha256(mdpUtilisateur.encode("utf-8")).hexdigest
 
-   
+
+
+
+
+
+crypt = hashlib.sha256(mdpUtilisateur.encode("utf-8")).hexdigest
+dict_crypt = {"stock": str(crypt)}
+with open("passstock.json", "a") as outfile:
+    json.dump(dict_crypt, outfile)
